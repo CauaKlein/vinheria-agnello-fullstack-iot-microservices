@@ -1,0 +1,524 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap");
+
+/* CSS VINHOS */
+.container {
+    display: flex;
+    background-color: #3d4a39;
+    justify-content: center;
+}
+
+.container-conteudo {
+    display: flex;
+    align-items: flex-start;
+    margin: 4em 1em 5em 2em;
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    padding: 25px;
+    background: #f5f1e9;
+    color: black;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-family: Inter;
+}
+
+.filtros h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.filtro-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9em;
+    margin-top: 20px;
+    font-size: 1.3rem;
+}
+
+.filtro-box h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.filtro-box label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+}
+
+.filtro-box input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.filtro-box input[type="checkbox"]:checked {
+    background-color: #000000;
+    border: 1px solid #000000;
+}
+
+.filtro-box input[type="checkbox"]:checked::before {
+    content: "✔";
+    font-size: 10px;
+    color: #f5f1e9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.filtro-box input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #ece4d5;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.filtro-box input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.produtos {
+    flex: 1;
+    margin-left: 1.5em;
+}
+
+.ordenar {
+    background-color: #f5f1e9;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.25em 1em;
+}
+
+.ordenar p {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.ordenar-botoes button {
+    border: none;
+    border-radius: 9px;
+    background-color: #ece4d5;
+    padding: 0.5em;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.products-vinhos {
+    margin-left: 4em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    padding: 3em;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.product-vinhos {
+    background-color: #333e30;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 400px;
+    height: 245px;
+}
+
+.product-vinhos-title {
+    margin-bottom: 5px;
+    color: white;
+}
+
+.product-vinhos-price {
+    margin-top: 0;
+    color: white;
+}
+
+.product-vinhos-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-vinhos-info h4 {
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+}
+
+.product-vinhos-info p {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -2%;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.product-vinhos-info a {
+    margin-top: 1em;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    line-height: 24px;
+    color: white;
+}
+
+.vinhos-cart-options {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: auto;
+    padding-bottom: 2em;
+}
+
+.vinhos-cart-options input {
+    width: 29px;
+    height: 31px;
+    background-color: transparent;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    border: 1.5px solid #f5f1e9;
+    border-radius: 5px;
+    color: #f5f1e9;
+}
+
+.vinhos-cart-options button {
+    background-color: #f5f1e9;
+    color: #3d4a39;
+    border: none;
+    padding: 0.75em 1em;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* CSS DETALHES */
+.produto-detalhes {
+    padding-top: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3d4a39;
+}
+
+.produto-imagem-detalhes img {
+    width: 85%;
+    border-radius: 10px;
+}
+
+.produto-info-detalhes {
+    display: table-column;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    margin-left: 40px;
+    color: #f5f1e9;
+    font-size: 23px;
+    font-family: Inter;
+}
+
+.produto-info-detalhes h1 {
+    font-size: 50px;
+}
+
+.preco-detalhes {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.detalhes-lista-detalhes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+    font-family: Inter;
+}
+
+.detalhes-lista-detalhes li {
+    margin: 5px 0;
+}
+
+.comprar-detalhes {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.quantidade-detalhes {
+    width: 35px;
+    height: 38px;
+    font-size: 20px;
+    background-color: #3d4a39;
+    text-align: center;
+    font-family: Inter;
+    font-weight: 400;
+    color: #f5f1e9;
+    border: 1.5px solid #f5f1e9;
+    border-radius: 5px;
+    padding: 3px 0.2em;
+}
+
+.btn-detalhes {
+    background-color: #f5f1e9;
+    color: #3c4634;
+    border: none;
+    padding: 3px 3em;
+    cursor: pointer;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 19px;
+    font-family: Inter;
+}
+
+.como-degustar-detalhes {
+    padding-top: 6em;
+    text-align: center;
+    background-color: #3d4a39;
+    font-family: Inter;
+}
+
+.como-degustar-detalhes h2 {
+    color: #3d4a39;
+    background-color: #f5f1e9;
+    padding: 0.3em 4em;
+    border-radius: 4px;
+    font-family: Inter;
+    margin-bottom: 2em;
+}
+
+.degustacao-detalhes {
+    padding: 2em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: #f5f1e9;
+}
+
+.como-degustar {
+    display: flex;
+    gap: 4em;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.como-degustar-itens {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.item-detalhes {
+    text-align: left;
+    margin: 10px;
+}
+
+.reviews-detalhes {
+    display: flexbox;
+    flex-direction: column;
+    text-align: left;
+    align-items: left;
+    background-color: #3d4a39;
+    padding: 40px;
+    padding-top: 10em;
+}
+
+.reviews-detalhes h2 {
+    font-size: 30px;
+    font-family: Inter;
+    color: #f5f1e9;
+    margin-left: 2.5em;
+}
+
+.reviews {
+    display: flex;
+    justify-content: center;
+}
+
+.review-detalhes {
+    width: 25%;
+    background-color: #f5f1e9;
+    padding: 1em 2em;
+    margin: 10px 1em;
+    font-family: Inter;
+    border-radius: 5px;
+    font-size: 19px;
+}
+
+/* ===== Bloco Consolidado para a Seção "Como degustar" ===== */
+.como-degustar-detalhes {
+    padding-top: 6em;
+    text-align: center;
+    background-color: #3d4a39;
+    font-family: Inter;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.como-degustar-detalhes h2 {
+    color: #3d4a39;
+    background-color: #f5f1e9;
+    padding: 0.3em 4em;
+    border-radius: 4px;
+    font-family: Inter;
+    margin-bottom: 2em;
+}
+
+.degustacao-detalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: #f5f1e9;
+}
+
+.como-degustar {
+    display: flex;
+}
+
+.como-degustar-itens {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.item-detalhes {
+    text-align: left;
+    margin: 10px;
+}
+
+.item-detalhes h3 {
+    display: inline-block;
+    padding: 0em 0.5em;
+    text-align: center;
+    color: #3d4a39;
+    background-color: #f5f1e9;
+    border-radius: 6px;
+    font-size: 25px;
+}
+
+.item-detalhes p {
+    font-size: 20px;
+}
+
+.provar-vinho-detalhes {
+    display: inline;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    background-color: #3d4a39;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0; 
+    align-self: start;
+}
+
+.titulo-detalhes {
+    display: inline-block;
+    padding: 0em 0.5em;
+    color: #3d4a39;
+    background-color: #f5f1e9;
+    border-radius: 6px;
+    font-size: 25px;
+}
+
+.barra-container-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.barra-item-detalhes {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.barra-item-detalhes span {
+    color: #f5f1e9;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: Inter;
+}
+
+.barra-detalhes {
+    width: 100%;
+    height: 10px;
+    background: #2f372a;
+    border-radius: 5px;
+    position: relative;
+}
+
+.barra-preenchida-detalhes {
+    height: 100%;
+    background: #f5f1e9;
+    border-radius: 5px;
+    position: relative;
+}
+
+.barra-preenchida-detalhes::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 3px;
+    height: 20px;
+    background: #f5f1e9;
+    transform: translateY(-50%);
+}
+
+
+
+
+
+
+
+
+
+
+
