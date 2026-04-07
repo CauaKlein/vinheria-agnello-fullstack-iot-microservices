@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 33.64, "attrs": {} },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": -83.8,
+      "left": -163.8,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-photoresistor",
+      "id": "ldr1",
+      "top": 60,
+      "left": 120,
+      "attrs": { "value": "100" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr2",
+      "top": 166.4,
+      "left": -248.8,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ntc1:VCC", "esp:3V3", "red", [] ],
+    [ "ntc1:GND", "esp:GND.1", "black", [] ],
+    [ "ntc1:OUT", "esp:34", "green", [] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [] ],
+    [ "ldr1:SIG", "esp:32", "green", [] ],
+    [ "ldr2:VCC", "esp:3V3", "red", [ "h19.2", "v-144" ] ],
+    [ "ldr2:GND", "esp:GND.2", "black", [ "h96", "v66.8", "h163.2", "v-192" ] ],
+    [ "ldr2:AO", "esp:32", "green", [ "h86.4", "v-125.5" ] ]
+  ],
+  "dependencies": {}
+}

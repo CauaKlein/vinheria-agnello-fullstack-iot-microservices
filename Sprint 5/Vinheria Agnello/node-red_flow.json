@@ -1,0 +1,350 @@
+[
+    {
+        "id": "b9d03e98f34c4a4a",
+        "type": "tab",
+        "label": "Vinheria Dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "1b4d62b44c9f6e72",
+        "type": "mqtt in",
+        "z": "b9d03e98f34c4a4a",
+        "name": "MQTT Temperatura",
+        "topic": "Fiap/iot/3esor/agnello/temperatura",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "56c54b3dd8fa5e35",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "0d80d6c7b5f24b6a",
+                "ddc5ff64f92ebf1a"
+            ]
+        ]
+    },
+    {
+        "id": "e21333e5f248dcf6",
+        "type": "mqtt in",
+        "z": "b9d03e98f34c4a4a",
+        "name": "MQTT Luminosidade",
+        "topic": "Fiap/iot/3esor/agnello/luminosidade",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "56c54b3dd8fa5e35",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 360,
+        "y": 300,
+        "wires": [
+            [
+                "8de0c57d4f530da0",
+                "43035f5c134cfef1"
+            ]
+        ]
+    },
+    {
+        "id": "0d80d6c7b5f24b6a",
+        "type": "json",
+        "z": "b9d03e98f34c4a4a",
+        "name": "Parse JSON Temp",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 620,
+        "y": 200,
+        "wires": [
+            [
+                "change-temp",
+                "f4cb0c2321df52a5"
+            ]
+        ]
+    },
+    {
+        "id": "8de0c57d4f530da0",
+        "type": "json",
+        "z": "b9d03e98f34c4a4a",
+        "name": "Parse JSON Lum",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 620,
+        "y": 300,
+        "wires": [
+            [
+                "change-lum",
+                "837e0802de19d3a3"
+            ]
+        ]
+    },
+    {
+        "id": "f4cb0c2321df52a5",
+        "type": "ui_gauge",
+        "z": "b9d03e98f34c4a4a",
+        "name": "Gauge Temp",
+        "group": "cb4e764cc2de3e67",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "°C",
+        "format": "{{msg.payload.valor}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1070,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "837e0802de19d3a3",
+        "type": "ui_gauge",
+        "z": "b9d03e98f34c4a4a",
+        "name": "Gauge Lum",
+        "group": "cb4e764cc2de3e67",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Luminosidade",
+        "label": "%",
+        "format": "{{msg.payload.valor}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#00b500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1070,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ae7b3d6c943d13e8",
+        "type": "ui_chart",
+        "z": "b9d03e98f34c4a4a",
+        "name": "Chart Temp",
+        "group": "cb4e764cc2de3e67",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Histórico Temperatura",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Esperando dados...",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#ff0000"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1070,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6a32b95f9ec9f27d",
+        "type": "ui_chart",
+        "z": "b9d03e98f34c4a4a",
+        "name": "Chart Lum",
+        "group": "cb4e764cc2de3e67",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Histórico Luminosidade",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Esperando dados...",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "1",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#00b500"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1070,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ddc5ff64f92ebf1a",
+        "type": "debug",
+        "z": "b9d03e98f34c4a4a",
+        "name": "Debug Temp",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "43035f5c134cfef1",
+        "type": "debug",
+        "z": "b9d03e98f34c4a4a",
+        "name": "Debug Lum",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "change-temp",
+        "type": "change",
+        "z": "b9d03e98f34c4a4a",
+        "name": "Valor Temp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.valor",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 200,
+        "wires": [
+            [
+                "ae7b3d6c943d13e8"
+            ]
+        ]
+    },
+    {
+        "id": "change-lum",
+        "type": "change",
+        "z": "b9d03e98f34c4a4a",
+        "name": "Valor Lum",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.valor",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 300,
+        "wires": [
+            [
+                "6a32b95f9ec9f27d"
+            ]
+        ]
+    },
+    {
+        "id": "56c54b3dd8fa5e35",
+        "type": "mqtt-broker",
+        "name": "Test Mosquitto",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "cb4e764cc2de3e67",
+        "type": "ui_group",
+        "name": "Medições",
+        "tab": "b1c270e58d17bc82",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b1c270e58d17bc82",
+        "type": "ui_tab",
+        "name": "Vinheria Agnello",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d9c5b9ef522c779e",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
